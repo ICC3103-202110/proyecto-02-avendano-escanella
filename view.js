@@ -8,7 +8,7 @@ function getTitle(){
             'Weather App',
             {
                 horizontalLayout: 'full',
-                font: 'straight'
+                font: 'small'
                 
             }
         )
@@ -22,18 +22,39 @@ function getTable(model){
     const {min} = model
     return [{
         'Name':` ${name}`,
-        'Temp': `${tipPercent}`,
-        'Max': `${tip}`,
-        'Min':`${total}`
+        'Temp': `${temp}`,
+        'Max': `${max}`,
+        'Min':`${min}`
         }]
 }
 
 function inputForm(model){
-    const{name} = model
+    const{action} = model
     const choices = ['Add City','Update City','Delete City']
-    const message = 'Select action:'
-    return inqui
+    const message1 = 'Select action:'
+    const message2 = 'Location?'
+    return inquirer.prompt([{
+        name: 'action',
+        type: 'list',
+        message: message1,
+        default: 'Use arrow keys',
+        choices: choices
+    }])
 }
+
+function inputAdd(model){
+    const{name} = model
+    const message2 = 'Location?'
+    return inquirer.prompt([{
+        name: 'name',
+        type: 'input',
+        message: message2
+    }])
+
+}
+
+//function inputDelete(model)
+//function inputUpdate(model)
 
 function view(model){
     return {
@@ -44,5 +65,6 @@ function view(model){
 
 module.exports ={
     view,
-    inputForm
+    inputForm,
+    inputAdd
 }
