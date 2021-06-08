@@ -15,16 +15,24 @@ function getTitle(){
     )
 }
 
+function getCitys(model){
+    const {name} = model
+    const {temp} = model
+    const {max} = model
+    const {min} = model
+    for (i=0; i<name.length; i++){
+    }
+}
 function getTable(model){
     const {name} = model
     const {temp} = model
     const {max} = model
     const {min} = model
     return [{
-        'Name':` ${name}`,
-        'Temp': `${temp}`,
-        'Max': `${max}`,
-        'Min':`${min}`
+        'Name':` ${name[0]}`,
+        'Temp': `${temp[0]}`,
+        'Max': `${max[0]}`,
+        'Min':`${min[0]}`
         }]
 }
 
