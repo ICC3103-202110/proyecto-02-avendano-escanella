@@ -15,26 +15,23 @@ function getTitle(){
     )
 }
 
-function getCities(model){
-    const {name} = model
-    const {temp} = model
-    const {max} = model
-    const {min} = model
-    for (i=0; i<name.length; i++){
-    }
-}
 function getTable(model){
     const {name} = model
     const {temp} = model
     const {max} = model
     const {min} = model
-    return [{
-        'Name':` ${name[0]}`,
-        'Temp': `${temp[0]}`,
-        'Max': `${max[0]}`,
-        'Min':`${min[0]}`
-        }]
+    cities= new Array()
+    for (i=0; i<name.length; i++){
+        cities[i] = {
+            'Name': name[i],
+            'Temp': temp[i],
+            'Max': max[i],
+            'Min': min[i]
+            }
+    }
+    return cities
 }
+
 
 function inputForm(model){
     const{action} = model
@@ -73,6 +70,5 @@ function view(model){
 module.exports ={
     view,
     inputForm,
-    inputAdd,
-    getCities
+    inputAdd
 }

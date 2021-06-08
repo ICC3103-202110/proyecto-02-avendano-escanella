@@ -1,10 +1,10 @@
 
 initModel = {
     action:'Add City',
-    name: ['Santiago, CL','Concepcion'],
-    temp: [0,12],
-    max: [0,13],
-    min: [0,3],
+    name: ['Santiago, CL'],
+    temp: [0],
+    max: [0],
+    min: [0],
 }
 
 module.exports = {

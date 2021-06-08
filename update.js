@@ -8,7 +8,9 @@ function updateAdd(newName, model) {
             newTemp = response.data.temp
             newMax = response.data.main.temp_max
             newMin = response.data.main.temp_min
-        })
+            console.log(newTemp)
+        });
+    console.log(newTemp)
     const {action} = model
     const {name} = model
     const {temp} = model
