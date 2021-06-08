@@ -15,7 +15,7 @@ function getTitle(){
     )
 }
 
-function getCitys(model){
+function getCities(model){
     const {name} = model
     const {temp} = model
     const {max} = model
@@ -40,7 +40,6 @@ function inputForm(model){
     const{action} = model
     const choices = ['Add City','Update City','Delete City']
     const message1 = 'Select action:'
-    const message2 = 'Location?'
     return inquirer.prompt([{
         name: 'action',
         type: 'list',
@@ -74,5 +73,6 @@ function view(model){
 module.exports ={
     view,
     inputForm,
-    inputAdd
+    inputAdd,
+    getCities
 }

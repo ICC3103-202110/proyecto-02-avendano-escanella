@@ -1,8 +1,8 @@
 const {inputForm,inputAdd} = require('./view')
 const {printTable} = require('console-table-printer')
 
-async function app(state, update, view){
-   
+async function app(state, updateAdd, view){
+   while (true) {
     const {model,currentView} = state
     const{title,table} = currentView
 
@@ -12,9 +12,15 @@ async function app(state, update, view){
 
     const {action} = await inputForm(model)
     if (action === 'Add City') {
-        const {name} = await inputAdd(model)
+        const {newName} = await inputAdd(model)
+        const updateModel = updateAdd(newName,model)
+        state = {
+            ...state,
+            model: updatedModel,
+            currentView: view(updateModel)
+        }
+        }   
     }
-    
 }
 
 module.exports = {
