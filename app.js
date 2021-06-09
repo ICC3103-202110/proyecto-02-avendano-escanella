@@ -1,5 +1,7 @@
-const {inputForm,inputAdd} = require('./view')
+const {inputForm,inputAdd, inputDelete} = require('./view')
 const {printTable} = require('console-table-printer')
+const { updateDel } = require('./update')
+
 
 async function app(state, updateAdd, view){
    while (true) {
@@ -26,8 +28,16 @@ async function app(state, updateAdd, view){
             ...state,
             model: updateModel,
             currentView: view(updateModel)
+            }
+        } else if (action === 'Delete City' && cities != '') {
+            const {delName} = await inputDelete(model)
+            const updateModel = await updateDel(delName,model)
+            state = {
+                ...state,
+                model: updateModel,
+                currentView: view(updateModel)
+            }
         }
-        }   
         console.clear()
     }
 

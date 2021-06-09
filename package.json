@@ -1,7 +1,6 @@
 {
   "name": "proyecto-02-avendano-escanella",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,5 +23,6 @@
     "figlet": "^1.5.0",
     "inquirer": "^8.1.0",
     "prompt-sync": "^4.2.0"
-  }
+  },
+  "description": ""
 }

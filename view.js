@@ -2,6 +2,8 @@ const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
 
+const nameOfCity = city1 => city1.name
+
 function getTitle(){
     return chalk.cyanBright.bold(
         figlet.textSync(
@@ -43,7 +45,17 @@ function inputAdd(){
 
 }
 
-//function inputDelete(model)
+function inputDelete(model) {
+    const {cities} = model
+    const message2 = 'Location?'
+    return inquirer.prompt([{
+        name: 'delName',
+        type: 'list',
+        message: message2,
+        choices: cities.map(nameOfCity)
+    }])
+
+}
 //function inputUpdate(model)
 
 function view(model){
@@ -56,5 +68,6 @@ function view(model){
 module.exports ={
     view,
     inputForm,
-    inputAdd
+    inputAdd,
+    inputDelete
 }
