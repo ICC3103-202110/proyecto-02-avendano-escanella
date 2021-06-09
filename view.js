@@ -16,25 +16,12 @@ function getTitle(){
 }
 
 function getTable(model){
-    const {name} = model
-    const {temp} = model
-    const {max} = model
-    const {min} = model
-    cities= new Array()
-    for (i=0; i<name.length; i++){
-        cities[i] = {
-            'Name': name[i],
-            'Temp': temp[i],
-            'Max': max[i],
-            'Min': min[i]
-            }
-    }
+    const {cities} = model
     return cities
 }
 
 
-function inputForm(model){
-    const{action} = model
+function inputForm(){
     const choices = ['Add City','Update City','Delete City']
     const message1 = 'Select action:'
     return inquirer.prompt([{
@@ -46,11 +33,10 @@ function inputForm(model){
     }])
 }
 
-function inputAdd(model){
-    const{name} = model
+function inputAdd(){
     const message2 = 'Location?'
     return inquirer.prompt([{
-        name: 'name',
+        name: 'newName',
         type: 'input',
         message: message2
     }])

@@ -7,20 +7,30 @@ async function app(state, updateAdd, view){
     const{title,table} = currentView
 
     console.clear()
-    console.log(title)
-    printTable(table)
 
-    const {action} = await inputForm(model)
+    const {cities} = model
+
+    console.log(title)
+    if (cities == ''){
+        console.log('NO CITIES')
+    } else {
+        printTable(table) 
+    }
+    
+
+    const {action} = await inputForm()
     if (action === 'Add City') {
-        const {newName} = await inputAdd(model)
-        const updateModel = updateAdd(newName,model)
+        const {newName} = await inputAdd()
+        const updateModel = await updateAdd(newName,model)
         state = {
             ...state,
-            model: updatedModel,
+            model: updateModel,
             currentView: view(updateModel)
         }
         }   
+        console.clear()
     }
+
 }
 
 module.exports = {
