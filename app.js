@@ -22,13 +22,18 @@ async function app(state, updateAdd, view){
 
     const {action} = await inputForm(model)
     if (action === 'Add City') {
-        const {newName} = await inputAdd()
-        const updateModel = await updateAdd(newName,model)
-        state = {
-            ...state,
-            model: updateModel,
-            currentView: view(updateModel)
-            }
+        try { const {newName} = await inputAdd()
+            const updateModel = await updateAdd(newName,model)
+            
+            state = {
+                ...state,
+                model: updateModel,
+                currentView: view(updateModel)
+                }
+        }
+        catch (error) {
+            console.log("Invalid name")
+        }
 
         } else if (action === 'Update City' && cities != '') {
             const {changeName} = await inputChange(model)
