@@ -45,11 +45,11 @@ function inputAdd(){
 
 }
 
-function inputDelete(model) {
+function inputChange(model) {
     const {cities} = model
     const message2 = 'Location?'
     return inquirer.prompt([{
-        name: 'delName',
+        name: 'changeName',
         type: 'list',
         message: message2,
         choices: cities.map(nameOfCity)
@@ -69,5 +69,5 @@ module.exports ={
     view,
     inputForm,
     inputAdd,
-    inputDelete
+    inputChange
 }

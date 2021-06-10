@@ -1,6 +1,6 @@
-const {inputForm,inputAdd, inputDelete} = require('./view')
+const {inputForm,inputAdd, inputChange} = require('./view')
 const {printTable} = require('console-table-printer')
-const { updateDel } = require('./update')
+const {updateDel, updateUpd} = require('./update')
 
 
 async function app(state, updateAdd, view){
@@ -8,7 +8,7 @@ async function app(state, updateAdd, view){
     const {model,currentView} = state
     const{title,table} = currentView
 
-    console.clear()
+    //console.clear()
 
     const {cities} = model
 
@@ -29,16 +29,32 @@ async function app(state, updateAdd, view){
             model: updateModel,
             currentView: view(updateModel)
             }
-        } else if (action === 'Delete City' && cities != '') {
-            const {delName} = await inputDelete(model)
-            const updateModel = await updateDel(delName,model)
+
+        } else if (action === 'Update City' && cities != '') {
+            const {changeName} = await inputChange(model)
+            const updateModel = await updateUpd(changeName,model)
             state = {
                 ...state,
                 model: updateModel,
                 currentView: view(updateModel)
             }
+        } else if(action === 'Update City' && cities == '') {
+                console.log('You can not update a city because there arent any')
+        
+        
+        } else if (action === 'Delete City' && cities != '') {
+            const {changeName} = await inputChange(model)
+            const updateModel = await updateDel(changeName,model)
+            state = {
+                ...state,
+                model: updateModel,
+                currentView: view(updateModel)
+            }
+        } else if(action === 'Delete City' && cities == '') {
+                console.log('You can not delete a city because there arent any')
         }
-        console.clear()
+        
+       // console.clear()
     }
 
 }
