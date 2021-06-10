@@ -3,7 +3,6 @@ const axios = require('axios')
 const nameOfCity = city1 => city1.name
 
 async function updateAdd(newName, model) {
-
     await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${newName}&appid=f0ae2053adce751d2b36e1be3b9005b8&units=metric`
         ).then((response)=> {
             newTemp = response.data.main.temp
@@ -20,6 +19,7 @@ async function updateAdd(newName, model) {
         ...model,
         cities: cities
     }
+    
 }
 
 function updateDel(changeName, model) {

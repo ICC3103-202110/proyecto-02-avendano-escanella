@@ -20,7 +20,7 @@ async function app(state, updateAdd, view){
     }
     
 
-    const {action} = await inputForm()
+    const {action} = await inputForm(model)
     if (action === 'Add City') {
         const {newName} = await inputAdd()
         const updateModel = await updateAdd(newName,model)
@@ -54,7 +54,7 @@ async function app(state, updateAdd, view){
                 console.log('You can not delete a city because there arent any')
         }
         
-       // console.clear()
+       //console.clear()
     }
 
 }

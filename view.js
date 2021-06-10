@@ -23,9 +23,14 @@ function getTable(model){
 }
 
 
-function inputForm(){
-    const choices = ['Add City','Update City','Delete City']
+function inputForm(model){
+    const {cities} = model 
+    const choices = ['Add City', 'Update City', 'Delete City'] 
     const message1 = 'Select action:'
+    if (cities == ''){
+        choices.pop()
+        choices.pop()
+    }
     return inquirer.prompt([{
         name: 'action',
         type: 'list',
@@ -33,6 +38,7 @@ function inputForm(){
         default: 'Use arrow keys',
         choices: choices
     }])
+    
 }
 
 function inputAdd(){
