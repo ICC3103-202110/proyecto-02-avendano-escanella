@@ -62,7 +62,6 @@ function inputChange(model) {
     }])
 
 }
-//function inputUpdate(model)
 
 function view(model){
     return {
