@@ -8,7 +8,7 @@ async function app(state, updateAdd, view){
     const {model,currentView} = state
     const{title,table} = currentView
 
-    //console.clear()
+    console.clear()
 
     const {cities} = model
 
@@ -53,8 +53,6 @@ async function app(state, updateAdd, view){
         } else if(action === 'Delete City' && cities == '') {
                 console.log('You can not delete a city because there arent any')
         }
-        
-       //console.clear()
     }
 
 }
